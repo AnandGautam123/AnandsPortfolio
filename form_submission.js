@@ -1,4 +1,3 @@
-// handling form submission
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.querySelector(".contact-form");
 
@@ -16,6 +15,22 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("Email:", email);
     console.log("Message:", message);
 
-    alert("Message sent successfully!");
+    // Send email using EmailJS
+    emailjs.init("Anand Gautam");
+    const templateParams = {
+      to_email: email,
+      from_name: name,
+      message: message,
+    };
+    emailjs.send("service_dy88ep7", "template_m1rn0xj", templateParams).then(
+      function (response) {
+        console.log("Email sent:", response);
+        alert("Message sent successfully!");
+      },
+      function (error) {
+        console.error("Email error:", error);
+        alert("An error occurred while sending the message. Please try again.");
+      }
+    );
   });
 });
