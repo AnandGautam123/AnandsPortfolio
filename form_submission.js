@@ -1,36 +1,36 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const form = document.querySelector(".contact-form");
+const SendMail = () => {
+  event.preventDefault(); // Prevent form submission
+  const form = {
+    name: document.getElementById("name").value,
+    email: document.getElementById("email").value,
+    message: document.getElementById("message").value,
+  };
 
-  form.addEventListener("submit", function (event) {
-    event.preventDefault();
+  const setLoading = (isLoading) => {
+    // Implement setLoading function if needed
+  };
 
-    // Get the form data
-    const formData = new FormData(form);
-    const name = formData.get("name");
-    const email = formData.get("email");
-    const message = formData.get("message");
+  const templateParams = {
+    from_name: form.name,
+    to_name: "Anand Gautam",
+    from_email: form.email,
+    to_email: "anandgautam062003@gmail.com",
+    message: form.message,
+  };
 
-    console.log("Form submitted:");
-    console.log("Name:", name);
-    console.log("Email:", email);
-    console.log("Message:", message);
+  setLoading(true);
 
-    // Send email using EmailJS
-    emailjs.init("anandgautam062003@gmail.com");
-    const templateParams = {
-      to_email: email,
-      from_name: name,
-      message: message,
-    };
-    emailjs.send("service_dy88ep7", "template_m1rn0xj", templateParams).then(
-      function (response) {
-        console.log("Email sent:", response);
-        alert("Message sent successfully!");
-      },
-      function (error) {
-        console.error("Email error:", error);
-        alert("An error occurred while sending the message. Please try again.");
-      }
-    );
-  });
-});
+  emailjs
+    .send("service_dy88ep7", "template_m1rn0xj", templateParams)
+    .then(() => {
+      setLoading(false);
+      alert("Thank You, I will get back to you soon");
+    })
+    .catch((err) => {
+      setLoading(false);
+      console.log("Email error:", err);
+      alert("Something went wrong! Please try again.");
+    });
+};
+
+// Add more functions or code if needed
