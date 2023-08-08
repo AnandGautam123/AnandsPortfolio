@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Anand's Portfolio</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      integrity="sha512-9FmZxZYsW0W6OFUIvWU1T3iK0wBZgTwzo/SvfzBheQWcblMN3CS2gWicJve3Tg9YhXN/0wFfvI95OW9YhUp1Q=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="" preconnect href="https://fonts.googleapis.com" />
+    <link rel="" preconnect href="https://fonts.googleapis.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&dislay=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background-color: rgb(1, 1, 5);
+        color: rgb(224, 210, 210);
+        font-family: "poppins", sans-serif;
+      }
+      nav {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 80px;
+        background-color: rgb(5, 46, 46);
+      }
+      nav ul {
+        display: flex;
+        justify-content: center;
+      }
+      nav ul li {
+        list-style: none;
+        margin: 0 23px;
+      }
+      nav ul li a {
+        text-decoration: none;
+        color: white;
+      }
+      nav ul li a:hover {
+        color: rgb(188, 234, 147);
+        font-size: 1.2rem;
+      }
+      .sticky {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+      }
+
+      main hr {
+        border: 0;
+        background-color: rgb(157, 231, 170);
+        height: 1.2px;
+        margin: 40px 84px;
+      }
+      .left {
+        font-size: 1.5rem;
+      }
+      .firstSection {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin: 290px 0;
+      }
+      .firstSection > div {
+        width: 30%;
+      }
+      .leftSection {
+        font-size: 2rem;
+      }
+      .leftSection .buttons {
+        padding: 33px 0;
+      }
+      .leftSection .btn {
+        padding: 12px;
+        border: 2px solid white;
+        border-radius: 6px;
+        font-size: 20px;
+        cursor: pointer;
+        color: rgb(251, 241, 241);
+        background-color: #241630;
+      }
+      .rightSection img {
+        width: 100%;
+      }
+      .purple {
+        color: blueviolet;
+      }
+      .text-gray {
+        color: gray;
+      }
+      #element {
+        color: blueviolet;
+      }
+      .secondSection {
+        max-width: 80vw;
+        margin: auto;
+        height: 80vh;
+      }
+      .secondSection h1 {
+        font-size: 2rem;
+      }
+      .secondSection .box {
+        background-color: rgb(56, 52, 52);
+        width: 80vw;
+        height: 2px;
+        margin: 56px 0;
+        display: flex;
+      }
+      .secondSection .vertical {
+        height: 93px;
+        width: 1px;
+        background-color: white;
+        margin: 0 115px;
+      }
+      .image-top {
+        width: 23px;
+        position: relative;
+        top: -32px;
+        left: -9px;
+      }
+      .vertical-title {
+        position: relative;
+        top: 75px;
+        width: 150px;
+        font-size: 14px;
+      }
+      .vertical-desc {
+        position: relative;
+        top: 86px;
+        width: 150px;
+        font-size: 10px;
+        color: gray;
+      }
+      .section-three-title {
+        display: flex;
+        text-align: center;
+        margin: 40px;
+        font-size: 40px;
+        color: rgb(229, 220, 233);
+      }
+      .card-container-wrapper {
+        display: flex;
+        justify-content: center;
+      }
+      .card-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 20px;
+        gap: 20px;
+      }
+
+      .card {
+        width: calc(33.33% - 20px);
+        background-color: rgb(255, 255, 255);
+        padding: 20px;
+        margin-bottom: 20px;
+        box-sizing: border-box;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(27, 6, 72, 0.1);
+        transition: transform 0.3s ease;
+        position: relative;
+      }
+      .card:hover {
+        transform: scale(1.05);
+      }
+
+      .card button {
+        display: none;
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        border: 2px solid #1877bf;
+        background-color: #5773f1;
+        color: white;
+        padding: 12px 24px;
+        cursor: pointer;
+        border-radius: 6px;
+      }
+      .card button:hover {
+        background-color: #4ade4f;
+      }
+      .card:hover button {
+        display: block;
+        color: #000000;
+      }
+
+      .card img {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 10px;
+      }
+
+      .card h3 {
+        font-size: 18px;
+        margin: 0 0 10px;
+      }
+
+      .card p {
+        font-size: 14px;
+        margin: 0;
+      }
+      .ongoing-batch {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background-color: #f9ca24;
+        color: #000;
+        padding: 5px 10px;
+        border-radius: 5px;
+        font-size: 12px;
+        font-weight: bold;
+      }
+      .skills-section {
+        padding: 50px 0;
+      }
+
+      .section-title {
+        font-size: 24px;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .skills-container {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+
+      .skill {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .skill-logo {
+        width: 80px;
+        height: 80px;
+      }
+
+      .skill-title {
+        font-size: 30px;
+        margin-top: 20px;
+      }
+
+      .contact-section {
+        padding: 50px 0;
+      }
+
+      .section-title {
+        font-size: 24px;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .contact-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .contact-form {
+        max-width: 500px;
+        width: 100%;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      label {
+        font-weight: bold;
+        display: block;
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #450844;
+      }
+
+      .submit-button {
+        background-color: #4285f4;
+        color: #ffffff;
+        padding: 10px 20px;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+      }
+
+      .footer {
+        background-color: rgb(22, 4, 37);
+        padding: 30px 0;
+      }
+
+      .footer-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .footer-section {
+        flex: 1;
+        margin: 10px;
+        padding: 20px;
+      }
+
+      .footer-section h3 {
+        color: rgb(255, 255, 255);
+        font-size: 24px;
+        margin-bottom: 15px;
+      }
+
+      .footer-section p {
+        color: rgb(224, 210, 210);
+        font-size: 16px;
+        margin-bottom: 20px;
+      }
+
+      .contact-info {
+        list-style: none;
+        padding: 0;
+      }
+
+      .contact-info li {
+        margin-bottom: 8px;
+        display: flex;
+        align-items: center;
+      }
+
+      .contact-info i {
+        color: rgb(188, 234, 147);
+        font-size: 18px;
+        margin-right: 10px;
+      }
+
+      .social-icons {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        gap: 10px;
+      }
+
+      .social-icons li {
+        display: inline-block;
+      }
+
+      .social-icons a {
+        display: block;
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        line-height: 40px;
+        color: white;
+        background-color: rgb(55, 55, 55);
+        border-radius: 50%;
+        font-size: 18px;
+      }
+
+      .social-icons a:hover {
+        background-color: rgb(188, 234, 147);
+      }
+
+      .bottom-bar {
+        text-align: center;
+        color: gray;
+        padding: 10px 0;
+      }
+
+      .bottom-bar p {
+        margin: 0;
+      }
+
+      .bottom-bar hr {
+        border: none;
+        height: 1px;
+        background-color: gray;
+        margin-top: 10px;
+      }
+
+      @media (max-width: 768px) {
+        .footer-section {
+          flex: 1 0 100%;
+        }
+      }
+    </style>
+    <script src="form_submission.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <nav id="navbar">
+        <div class="left">Anand's Portfolio</div>
+        <div class="right">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#project-section">Projects</a></li>
+            <li><a href="#contact">Contact Me</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <section id="firstSection" class="firstSection">
+        <div class="leftSection">
+          Hey There My Name is <span class="purple">Anand Gautam</span>
+          <div>I'm a passionate</div>
+          <span id="element"></span>
+          <div class="buttons">
+            <button class="btn" id="redirectButton">View Resume</button>
+            <button class="btn" onclick="visitGitHub()">Visit Github</button>
+          </div>
+        </div>
+        <div class="rightSection">
+          <img src="images/bg.png" />
+        </div>
+      </section>
+      <hr />
+      <section id="skills" class="skills-section">
+        <div class="section-three-title">Skills</div>
+        <div class="skills-container">
+          <div class="skill">
+            <img src="images/html.png" alt="HTML Logo" class="skill-logo" />
+            <h3 class="skill-title">HTML</h3>
+          </div>
+          <div class="skill">
+            <img src="images/css.png" alt="CSS Logo" class="skill-logo" />
+            <h3 class="skill-title">CSS</h3>
+          </div>
+          <div class="skill">
+            <img src="images/js.png" alt="JavaScript Logo" class="skill-logo" />
+            <h3 class="skill-title">JavaScript</h3>
+          </div>
+          <div class="skill">
+            <img
+              src="images/expressjs.png"
+              alt="JavaScript Logo"
+              class="skill-logo"
+            />
+            <h3 class="skill-title">ExpressJs</h3>
+          </div>
+          <div class="skill">
+            <img src="images/react.png" alt="react Logo" class="skill-logo" />
+            <h3 class="skill-title">ReactJs</h3>
+          </div>
+          <div class="skill">
+            <img
+              src="images/nodejs.png"
+              alt="Node js Logo"
+              class="skill-logo"
+            />
+            <h3 class="skill-title">NodeJs</h3>
+          </div>
+          <div class="skill">
+            <img
+              src="images/mongodb.png"
+              alt="Mongodb Logo"
+              class="skill-logo"
+            />
+            <h3 class="skill-title">MongoDb</h3>
+          </div>
+          <div class="skill">
+            <img src="images/figma.png" alt="Figma Logo" class="skill-logo" />
+            <h3 class="skill-title">Figma</h3>
+          </div>
+          <div class="skill">
+            <img src="images/java.png" alt="Java Logo" class="skill-logo" />
+            <h3 class="skill-title">Java</h3>
+          </div>
+        </div>
+      </section>
+    </main>
+    <hr />
+    <section id="project-section" class="project-section">
+      <div class="section-three-title">Projects</div>
+      <div class="card-container">
+        <div class="card">
+          <img src="images/proj1.png" alt="Project 1" />
+          <h3>NewsPulse</h3>
+          <p>
+            It is a news website, created using React, offers a modern and
+            dynamic platform for delivering the latest news and information. The
+            website features a sleek and user-friendly interface, allowing
+            visitors to easily navigate through different sections and access a
+            wide range of news articles. With a responsive design, the website
+            ensures a seamless experience across various devices, including
+            desktops, tablets, and mobile phones.
+          </p>
+          <button
+            class="btn"
+            onclick="window.open('https://github.com/AnandGautam123/projects.git')"
+          >
+            GitHub Repo
+          </button>
+        </div>
+        <div class="card">
+          <img src="images/proj2.png" alt="Project 2" />
+          <h3>Weather360</h3>
+          <p>
+            Our weather website, built using HTML, CSS, and JavaScript,Users can
+            input their desired location or use geolocation to retrieve the
+            current weather conditions instantly.
+          </p>
+          <button
+            class="btn"
+            onclick="window.open('https://github.com/AnandGautam123/FinalProject.git')"
+          >
+            GitHub Repo
+          </button>
+        </div>
+        <div class="card">
+          <img src="images/proj5.png" alt="Project 5" />
+          <h3>Cinemix</h3>
+          <p>
+            This lightning-fast application leverages the power of Redux, React,
+            Vite, and React Router and much more to deliver seamless state
+            management, lightning-fast development, and smooth navigation.
+          </p>
+          <button
+            class="btn"
+            onclick="window.open('https://github.com/AnandGautam123/FinalProject.git')"
+          >
+            GitHub Repo
+          </button>
+        </div>
+        <div class="card">
+          <div class="ongoing-batch">Ongoing</div>
+          <img src="images/proj4.png" alt="Project 4" />
+          <h3>QuickMart</h3>
+          <p>
+            Our MERN-based e-commerce website provides a seamless shopping
+            experience with its powerful combination of MongoDB, Express, React,
+            and Node.js technologies. Offering a wide range of products, our
+            website boasts a user-friendly interface, allowing customers to
+            effortlessly browse, search, and purchase items. With secure payment
+            gateways, personalized user accounts,we ensure convenience and trust
+            throughout the entire shopping journey.
+          </p>
+          <button
+            class="btn"
+            onclick="window.open('https://github.com/AnandGautam123/FinalProject.git')"
+          >
+            GitHub Repo
+          </button>
+        </div>
+      </div>
+    </section>
+    <hr />
+    <section id="contact" class="contact-section">
+      <h2 class="section-title">Contact Me</h2>
+      <div class="contact-container">
+        <form class="contact-form" action="submit-form.php" method="POST">
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+          <div class="form-group">
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="submit-button">Send Message</button>
+        </form>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="container footer-container">
+        <div class="footer-section">
+          <h3>Contact Me</h3>
+          <p>
+            If you're interested in working together or have any questions, feel
+            free to get in touch.
+          </p>
+          <ul class="contact-info">
+            <li>
+              <i class="fas fa-envelope"></i> Email: anandgautam062003@gmail.com
+            </li>
+            <li><i class="fas fa-phone-alt"></i> Phone: +91 6200961600</li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Connect with Me</h3>
+          <p>
+            Let's connect on social media and stay updated on the latest trends
+            and technologies.
+          </p>
+          <ul class="social-icons">
+            <li>
+              <a
+                href="https://www.linkedin.com/in/anand--gautam"
+                target="_blank"
+                title="LinkedIn"
+                ><i class="fab fa-linkedin"></i
+              ></a>
+            </li>
+            <li>
+              <a
+                href="https://github.com/AnandGautam123"
+                target="_blank"
+                title="GitHub"
+                ><i class="fab fa-github"></i
+              ></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="bottom-bar">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <p>
+                &copy; 2023 Anand Gautam. All rights reserved. | Designed with
+                <i class="fas fa-heart"></i> By Anand Gautam
+              </p>
+              <hr />
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+    <script>
+      var typed = new Typed("#element", {
+        strings: ["Programmer", "Fullstack Web Developer"],
+        typeSpeed: 70,
+      });
+
+      function visitGitHub() {
+        var githubProfileLink = "https://github.com/AnandGautam123";
+        window.open(githubProfileLink);
+      }
+
+      document.getElementById("redirectButton").onclick = function () {
+        window.location.href = "resume.html";
+      };
+
+      window.addEventListener("scroll", function () {
+        var navbar = document.getElementById("navbar");
+        if (window.scrollY > 0) {
+          navbar.classList.add("sticky");
+        } else {
+          navbar.classList.remove("sticky");
+        }
+      });
+    </script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+  </body>
+</html>
