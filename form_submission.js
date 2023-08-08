@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("Message:", message);
 
     // Send email using EmailJS
-    emailjs.init("Anand Gautam");
+    emailjs.init("anandgautam062003@gmail.com");
     const templateParams = {
       to_email: email,
       from_name: name,
