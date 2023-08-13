@@ -22,7 +22,6 @@
       }
       body {
         background: lightblue;
-        display: flex;
         justify-content: center;
         align-items: center;
         min-height: 100vh;
@@ -236,10 +235,9 @@
         background-color: #0288d1;
       }
       .button-container {
-        position: absolute;
-        top: 0;
-        left: 0;
-        margin: 10px;
+        justify-content: space-between;
+        padding: 10px;
+        margin-bottom: 20px;
       }
 
       @media (max-width: 1000px) {
@@ -264,6 +262,17 @@
           grid-template-columns: repeat(1, 1fr);
         }
         .skills .box {
+          grid-template-columns: repeat(1, 1fr);
+        }
+        .button-container {
+          flex-direction: column;
+          align-items: center;
+        }
+        .btn {
+          margin-top: 10px;
+        }
+        .container {
+          margin: 10px;
           grid-template-columns: repeat(1, 1fr);
         }
       }
@@ -527,7 +536,7 @@
       }
       function downloadResume() {
         var resumeLink =
-          "https://drive.google.com/file/d/1LjDvqYLRBsCAgLww0FLopE9IuWTkuUK6/view?usp=drive_link";
+          "https://drive.google.com/file/d/1-Ew-59P1AOdvSwWoO5EKDNZPAGEz4Haz/view?usp=drive_link";
         window.open(resumeLink);
       }
     </script>
